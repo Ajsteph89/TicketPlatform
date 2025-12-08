@@ -15,3 +15,6 @@
 
     <button type="submit">Login</button>
 </form>
+
+<br>
+<a href="/">← Back to Home</a>

@@ -2,7 +2,8 @@
 
 return [
     'GET' => [
-        '/' => 'Goer/EventController@index',
+        //HOMEPAGE
+        '/' => 'HomeController@index',
 
         //AUTH
         '/register' => 'AuthController@showRegister',
@@ -19,14 +20,16 @@ return [
         '/organizer/events/tickets/create' => 'Organizer/TicketAdminController@create',
         '/organizer/events/tickets/edit' => 'Organizer/TicketAdminController@edit',
 
-        //EVENT GOER
+        //PUBLIC EVENTS 
+        '/events' => 'Goer/EventController@index',
         '/events/show' => 'Goer/EventController@show',
 
-        //CART
+        //CART + CHECKOUT
         '/cart' => 'Cart/CartController@index',
+        '/checkout' => 'Cart/CheckoutController@index',
+        '/checkout/success' => 'Cart/CheckoutController@success',
 
-
-
+        '/my-tickets' => 'Goer/TicketController@myTickets',
     ],
 
     'POST' => [
@@ -44,10 +47,11 @@ return [
         '/organizer/events/tickets/update' => 'Organizer/TicketAdminController@update',
         '/organizer/events/tickets/delete' => 'Organizer/TicketAdminController@delete',
 
-        //CART
+        //CART + CHECKOUT
         '/cart/add'    => 'Cart/CartController@add',
         '/cart/remove' => 'Cart/CartController@remove',
         '/cart/clear'  => 'Cart/CartController@clear',
+        '/checkout/process' => 'Cart/CheckoutController@process',
 
 
 

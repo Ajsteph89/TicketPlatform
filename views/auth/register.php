@@ -38,3 +38,6 @@
 
     <button type="submit">Create Account</button>
 </form>
+
+<br>
+<a href="/">← Back to Home</a>

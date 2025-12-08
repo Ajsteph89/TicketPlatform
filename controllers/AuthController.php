@@ -5,7 +5,8 @@ class AuthController extends Controller
     public function showRegister()
     {
         $this->view('auth/register', [
-            'title' => 'Register'
+            'title' => 'Register',
+            'hideNavbar' => true  
         ]);
     }
 
@@ -51,7 +52,8 @@ class AuthController extends Controller
     public function showLogin()
     {
         $this->view('auth/login', [
-            'title' => 'Login'
+            'title' => 'Login',
+            'hideNavbar' => true  
         ]);
     }
 
@@ -73,17 +75,18 @@ class AuthController extends Controller
 
         // STORE USER IN SESSION
         $_SESSION['user'] = [
-            'id'         => $user['id'],
+            'id' => $user['id'],
             'first_name' => $user['first_name'],
-            'last_name'  => $user['last_name'],
-            'role'       => $user['role']
+            'last_name' => $user['last_name'],
+            'email' => $user['email'],
+            'role' => $user['role']
         ];
 
         // ROLE-BASED REDIRECT
         if ($user['role'] === 'organizer') {
             header('Location: /organizer/events');
         } else {
-            header('Location: /');
+            header('Location: /events');
         }
 
         exit;
@@ -93,7 +96,7 @@ class AuthController extends Controller
     public function logout()
     {
         session_destroy();
-        header('Location: /login');
+        header('Location: /');
         exit;
     }
 }

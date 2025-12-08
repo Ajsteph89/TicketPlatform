@@ -17,29 +17,41 @@
     <?php foreach ($tickets as $ticket): ?>
         <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
             <p><strong><?= $ticket['ticket_type'] ?></strong></p>
+            <p>Sales Begin: <?= $ticket['sale_start']?></p>
+            <p>Sales End: <?= $ticket['sale_end']?></p>
             <p>Price: $<?= number_format($ticket['price'], 2) ?></p>
-            <p>Available: <?= $ticket['quantity'] ?></p>
 
-            <form method="POST" action="/cart/add" style="display:inline;">
-                <input type="hidden" name="ticket_id" value="<?= $ticket['id'] ?>">
+            <?php if ($ticket['quantity'] > 0): ?>
+                <p>Available: <?= $ticket['quantity'] ?></p>
 
-                <label>
-                    Qty:
-                    <input 
-                        type="number" 
-                        name="quantity" 
-                        min="1" 
-                        max="<?= $ticket['quantity'] ?>" 
-                        value="1"
-                        style="width:60px;"
-                    >
-                </label>
+                <form method="POST" action="/cart/add" style="display:inline;">
+                    <input type="hidden" name="ticket_id" value="<?= $ticket['id'] ?>">
 
-                <button type="submit">Add to Cart</button>
-            </form>
+                    <label>
+                        Qty:
+                        <input 
+                            type="number" 
+                            name="quantity" 
+                            min="1" 
+                            max="<?= $ticket['quantity'] ?>" 
+                            value="1"
+                            style="width:60px;"
+                        >
+                    </label>
+
+                    <button type="submit">Add to Cart</button>
+                </form>
+
+            <?php else: ?>
+                <p style="color:red; font-weight:bold;">SOLD OUT</p>
+
+                <button type="button" disabled style="opacity:0.6;">
+                    Sold Out
+                </button>
+            <?php endif; ?>
         </div>
     <?php endforeach; ?>
 <?php endif; ?>
 
 <br>
-<a href="/">← Back to All Events</a>
+<a href="/events">← Back to All Events</a>

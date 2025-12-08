@@ -61,7 +61,11 @@
     <form method="POST" action="/cart/clear">
         <button type="submit">Clear Cart</button>
     </form>
+    <br><br>
+    <a href="/checkout">
+        <button>Proceed to Checkout</button>
+    </a>
 <?php endif; ?>
 
 <br>
-<a href="/">← Back to Events</a>
+<a href="/events">← Back to Events</a>
