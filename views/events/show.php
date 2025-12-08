@@ -20,8 +20,21 @@
             <p>Price: $<?= number_format($ticket['price'], 2) ?></p>
             <p>Available: <?= $ticket['quantity'] ?></p>
 
-            <form method="POST" action="/cart/add">
+            <form method="POST" action="/cart/add" style="display:inline;">
                 <input type="hidden" name="ticket_id" value="<?= $ticket['id'] ?>">
+
+                <label>
+                    Qty:
+                    <input 
+                        type="number" 
+                        name="quantity" 
+                        min="1" 
+                        max="<?= $ticket['quantity'] ?>" 
+                        value="1"
+                        style="width:60px;"
+                    >
+                </label>
+
                 <button type="submit">Add to Cart</button>
             </form>
         </div>

@@ -22,6 +22,9 @@ return [
         //EVENT GOER
         '/events/show' => 'Goer/EventController@show',
 
+        //CART
+        '/cart' => 'Cart/CartController@index',
+
 
 
     ],
@@ -41,6 +44,10 @@ return [
         '/organizer/events/tickets/update' => 'Organizer/TicketAdminController@update',
         '/organizer/events/tickets/delete' => 'Organizer/TicketAdminController@delete',
 
+        //CART
+        '/cart/add'    => 'Cart/CartController@add',
+        '/cart/remove' => 'Cart/CartController@remove',
+        '/cart/clear'  => 'Cart/CartController@clear',
 
 
 
