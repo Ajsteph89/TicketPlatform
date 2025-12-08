@@ -13,6 +13,8 @@
             <p><strong>Date:</strong> <?= $event['event_datetime'] ?></p>
             <p><strong>Location:</strong> <?= htmlspecialchars($event['location']) ?></p>
 
+            <a href="/organizer/events/tickets?event_id=<?= $event['id'] ?>">Manage Tickets</a> |
+
             <a href="/organizer/events/edit?id=<?= $event['id'] ?>">Edit</a>
 
             <form method="POST" action="/organizer/events/delete" style="display:inline;">
