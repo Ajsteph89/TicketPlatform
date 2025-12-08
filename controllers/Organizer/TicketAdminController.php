@@ -5,7 +5,7 @@ class TicketAdminController extends Controller
     // LIST TICKETS FOR AN EVENT
     public function index()
     {
-        require_once __DIR__ . '/../config/db.php';
+        require_once __DIR__ . '/../../config/db.php';
 
         $eventId = $_GET['event_id'];
         $userId  = $_SESSION['user']['id'];
@@ -43,7 +43,7 @@ class TicketAdminController extends Controller
     // STORE TICKET
     public function store()
     {
-        require_once __DIR__ . '/../config/db.php';
+        require_once __DIR__ . '/../../config/db.php';
 
         $eventId    = $_POST['event_id'];
         $userId     = $_SESSION['user']['id'];
@@ -78,7 +78,7 @@ class TicketAdminController extends Controller
     // SHOW EDIT FORM
     public function edit()
     {
-        require_once __DIR__ . '/../config/db.php';
+        require_once __DIR__ . '/../../config/db.php';
 
         $ticketId = $_GET['id'];
         $eventId  = $_GET['event_id'];
@@ -107,7 +107,7 @@ class TicketAdminController extends Controller
     // UPDATE TICKET
     public function update()
     {
-        require_once __DIR__ . '/../config/db.php';
+        require_once __DIR__ . '/../../config/db.php';
 
         $ticketId  = $_POST['id'];
         $eventId   = $_POST['event_id'];
@@ -150,7 +150,7 @@ class TicketAdminController extends Controller
     // DELETE TICKET
     public function delete()
     {
-        require_once __DIR__ . '/../config/db.php';
+        require_once __DIR__ . '/../../config/db.php';
 
         $ticketId = $_POST['id'];
         $eventId  = $_POST['event_id'];

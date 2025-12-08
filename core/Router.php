@@ -27,9 +27,24 @@ class Router
 
         [$controllerName, $methodName] = explode('@', $action);
 
-        require_once __DIR__ . "/../controllers/{$controllerName}.php";
+        // Build proper file path (supports folders)
+        $controllerPath = __DIR__ . "/../controllers/" . $controllerName . ".php";
 
-        $controller = new $controllerName;
+        if (!file_exists($controllerPath)) {
+            die("Controller file not found: $controllerPath");
+        }
+
+        require_once $controllerPath;
+
+        //  Extract just the class name (no folders)
+        $controllerParts = explode('/', $controllerName);
+        $className = end($controllerParts);
+
+        if (!class_exists($className)) {
+            die("Controller class not found: $className");
+        }
+
+        $controller = new $className();
         $controller->$methodName();
     }
 }

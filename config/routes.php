@@ -2,27 +2,25 @@
 
 return [
     'GET' => [
-        '/' => 'TestController@index',
+        '/' => 'Goer/EventController@index',
 
-        //Auth
+        //AUTH
         '/register' => 'AuthController@showRegister',
         '/login' => 'AuthController@showLogin',
         '/logout' => 'AuthController@logout',
 
-        //EVENT ORGANIZER
-        //EVENTS
-        '/organizer/events' => 'EventAdminController@index',
-        '/organizer/events/create' => 'EventAdminController@create',
-        '/organizer/events/store' => 'EventAdminController@store',
-        '/organizer/events/edit'   => 'EventAdminController@edit',
-        '/organizer/events/update' => 'EventAdminController@update',
-        '/organizer/events/delete' => 'EventAdminController@delete',
+        //ORGANIZER - EVENTS
+        '/organizer/events' => 'Organizer/EventAdminController@index',
+        '/organizer/events/create' => 'Organizer/EventAdminController@create',
+        '/organizer/events/edit'   => 'Organizer/EventAdminController@edit',
 
-        //TICKETS
-        '/organizer/events/tickets'        => 'TicketAdminController@index',
-        '/organizer/events/tickets/create' => 'TicketAdminController@create',
-        '/organizer/events/tickets/edit' => 'TicketAdminController@edit',
+        //ORGANIZER - TICKETS
+        '/organizer/events/tickets'        => 'Organizer/TicketAdminController@index',
+        '/organizer/events/tickets/create' => 'Organizer/TicketAdminController@create',
+        '/organizer/events/tickets/edit' => 'Organizer/TicketAdminController@edit',
 
+        //EVENT GOER
+        '/events/show' => 'Goer/EventController@show',
 
 
 
@@ -33,16 +31,15 @@ return [
         '/register' => 'AuthController@register',
         '/login' => 'AuthController@login',
 
-        //EVENT ORGANIZER
-        //EVENTS
-        '/organizer/events/store' => 'EventAdminController@store',
-        '/organizer/events/update' => 'EventAdminController@update',
-        '/organizer/events/delete' => 'EventAdminController@delete',
+        //ORGANIZER -EVENTS
+        '/organizer/events/store' => 'Organizer/EventAdminController@store',
+        '/organizer/events/update' => 'Organizer/EventAdminController@update',
+        '/organizer/events/delete' => 'Organizer/EventAdminController@delete',
 
-        //TICKETS
-        '/organizer/events/tickets/store'  => 'TicketAdminController@store',
-        '/organizer/events/tickets/update' => 'TicketAdminController@update',
-        '/organizer/events/tickets/delete' => 'TicketAdminController@delete',
+        //ORGANIZER - TICKETS
+        '/organizer/events/tickets/store'  => 'Organizer/TicketAdminController@store',
+        '/organizer/events/tickets/update' => 'Organizer/TicketAdminController@update',
+        '/organizer/events/tickets/delete' => 'Organizer/TicketAdminController@delete',
 
 
 
