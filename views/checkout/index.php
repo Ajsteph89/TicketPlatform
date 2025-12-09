@@ -1,6 +1,6 @@
 <h1>Checkout</h1>
 
-<form method="POST" action="/checkout/process">
+<form method="POST" action="/checkout/process" id="modal-checkout-form">
 
     <h3>Customer Information</h3>
 
@@ -95,4 +95,4 @@
 </form>
 
 <br>
-<a href="/cart">← Back to Cart</a>
+<a href="#" class="back-to-cart">← Back to Cart</a>

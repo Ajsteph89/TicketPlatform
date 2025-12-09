@@ -14,7 +14,8 @@ class CheckoutController extends Controller
 
         $this->view('checkout/index', [
             'title' => 'Checkout',
-            'cart'  => $cart
+            'cart'  => $cart,
+            'hideNavbar' => isset($_GET['modal'])
         ]);
     }
 
@@ -125,7 +126,8 @@ class CheckoutController extends Controller
     public function success()
     {
         $this->view('checkout/success', [
-            'title' => 'Order Completed'
+            'title' => 'Order Completed',
+            'hideNavbar' => isset($_GET['modal'])
         ]);
     }
 

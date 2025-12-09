@@ -24,7 +24,7 @@
             <?php if ($ticket['quantity'] > 0): ?>
                 <p>Available: <?= $ticket['quantity'] ?></p>
 
-                <form method="POST" action="/cart/add" style="display:inline;">
+                <form method="POST" action="/cart/add" class="add-to-cart-form" style="display:inline;">
                     <input type="hidden" name="ticket_id" value="<?= $ticket['id'] ?>">
 
                     <label>

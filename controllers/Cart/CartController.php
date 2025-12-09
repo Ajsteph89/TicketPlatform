@@ -9,7 +9,8 @@ class CartController extends Controller
 
         $this->view('cart/index', [
             'title' => 'Your Cart',
-            'cart'  => $cart
+            'cart'  => $cart,
+            'hideNavbar' => isset($_GET['modal'])
         ]);
     }
 
