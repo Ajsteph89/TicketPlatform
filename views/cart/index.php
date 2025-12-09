@@ -3,7 +3,7 @@
 <?php if (empty($cart)): ?>
     <p>Your cart is empty.</p>
 <?php else: ?>
-    <table border="1" cellpadding="8">
+    <table class="cart-table">
         <tr>
             <th>Event</th>
             <th>Ticket Type</th>
@@ -28,22 +28,20 @@
                 <td><?= $item['quantity'] ?></td>
                 <td>$<?= number_format($itemTotal, 2) ?></td>
                 <td>
-                <form method="POST" action="/cart/remove" style="display:inline;" class="remove-from-cart">
+                <form method="POST" action="/cart/remove" class="remove-from-cart ticket-actions">
                     <input type="hidden" name="ticket_id" value="<?= $item['ticket_id'] ?>">
 
                     <label>
-                        Remove:
                         <input 
                             type="number" 
                             name="quantity" 
                             min="1" 
                             max="<?= $item['quantity'] ?>" 
                             value="1"
-                            style="width:60px;"
                         >
                     </label>
 
-                    <button type="submit">Update</button>
+                    <button type="submit">Remove</button>
                 </form>
 
                 </td>
@@ -68,4 +66,4 @@
 <?php endif; ?>
 
 <br><br>
-<a href="/events">← Back to Events</a>
+<a href="/events" class="btn-secondary">← Back to Events</a>

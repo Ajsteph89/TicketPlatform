@@ -1,20 +1,23 @@
 <h1>Login</h1>
 
-<form method="POST" action="/login">
-    <div>
-        <label>Email</label><br>
-        <input type="email" name="email" required>
-    </div>
+<div class="checkout-box">
+    <form method="POST" action="/login">
+        <div class="form-group">
+            <label>Email</label><br>
+            <input type="email" name="email" required>
+        </div>
 
-    <div>
-        <label>Password</label><br>
-        <input type="password" name="password" required>
-    </div>
+        <div class="form-group">
+            <label>Password</label><br>
+            <input type="password" name="password" required>
+        </div>
 
-    <br>
+        <div class="ticket-actions">
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</div>
 
-    <button type="submit">Login</button>
-</form>
+<br><br>
 
-<br>
-<a href="/">← Back to Home</a>
+<a href="/" class="btn-secondary">← Back to Home</a>

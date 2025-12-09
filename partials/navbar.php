@@ -1,4 +1,4 @@
-<nav style="padding: 10px; background: #eee;">
+<nav class="navbar">
     <strong>Ticket Market</strong>
 
     <span style="float: right;">

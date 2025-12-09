@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 fetch(clearForm.action, {
                     method: 'POST'
                 }).then(() => {
-                    loadCart(); // ✅ Reload modal cart without closing
+                    loadCart(); // Reload modal cart without closing
                 });
             });
         }

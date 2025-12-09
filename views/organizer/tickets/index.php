@@ -1,6 +1,6 @@
 <h1>Manage Tickets</h1>
 
-<a href="/organizer/events/tickets/create?event_id=<?= $event_id ?>">+ Add Ticket Type</a>
+<a href="/organizer/events/tickets/create?event_id=<?= $event_id ?>" class="btn-primary">+ Add Ticket Type</a>
 
 <hr>
 
@@ -8,7 +8,7 @@
     <p>No tickets created for this event yet.</p>
 <?php else: ?>
     <?php foreach ($tickets as $ticket): ?>
-        <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+        <div class="event-card">
             <p><strong>Type:</strong> <?= $ticket['ticket_type'] ?></p>
             <p><strong>Price:</strong> $<?= number_format($ticket['price'], 2) ?></p>
             <p><strong>Qty:</strong> <?= $ticket['quantity'] ?></p>
@@ -20,7 +20,7 @@
             </p>
             <p><strong>Visibility:</strong> <?= ucfirst($ticket['visibility']) ?></p>
 
-            <a href="/organizer/events/tickets/edit?id=<?= $ticket['id'] ?>&event_id=<?= $event_id ?>">Edit</a>
+            <a href="/organizer/events/tickets/edit?id=<?= $ticket['id'] ?>&event_id=<?= $event_id ?>" class="btn-secondary">Edit</a>
 
             <form method="POST" action="/organizer/events/tickets/delete" style="display:inline;">
                 <input type="hidden" name="id" value="<?= $ticket['id'] ?>">
@@ -33,5 +33,5 @@
     <?php endforeach; ?>
 <?php endif; ?>
 
-<br>
-<a href="/organizer/events">← Back to Events</a>
+<br><br>
+<a href="/organizer/events" class="btn-secondary">← Back to Events</a>

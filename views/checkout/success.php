@@ -2,11 +2,12 @@
 
 <p>Thank you for your purchase. Your tickets have been reserved.</p>
 
-<br>
+<br><br>
+
 <a href="#" onclick="
     document.getElementById('cart-modal').style.display='none';
     window.location.href='/events';
     return false;
-">
+" class="btn-secondary">
     Continue Browsing
 </a>

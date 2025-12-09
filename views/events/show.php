@@ -16,7 +16,7 @@
     <p>No tickets available for this event.</p>
 <?php else: ?>
     <?php foreach ($tickets as $ticket): ?>
-        <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+        <div class="ticket-card">
             <p><strong><?= $ticket['ticket_type'] ?></strong></p>
             <p>Sales Begin: <?= date('F j, Y g:i A', strtotime($ticket['sale_start'])) ?></p>
             <p>Sales End: <?= date('F j, Y g:i A', strtotime($ticket['sale_end'])) ?></p>
@@ -25,20 +25,18 @@
             <?php if ($ticket['quantity'] > 0): ?>
                 <p>Available: <?= $ticket['quantity'] ?></p>
 
-                <form method="POST" action="/cart/add" class="add-to-cart-form" style="display:inline;">
+                <form method="POST" action="/cart/add" class="add-to-cart-form ticket-actions">
                     <input type="hidden" name="ticket_id" value="<?= $ticket['id'] ?>">
 
-                    <label>
-                        Qty:
-                        <input 
-                            type="number" 
-                            name="quantity" 
-                            min="1" 
-                            max="<?= $ticket['quantity'] ?>" 
-                            value="1"
-                            style="width:60px;"
-                        >
-                    </label>
+                    <span>Qty:</span>
+
+                    <input 
+                        type="number" 
+                        name="quantity" 
+                        min="1" 
+                        max="<?= $ticket['quantity'] ?>" 
+                        value="1"
+                    >
 
                     <button type="submit">Add to Cart</button>
                 </form>
@@ -54,5 +52,5 @@
     <?php endforeach; ?>
 <?php endif; ?>
 
-<br>
-<a href="/events">← Back to All Events</a>
+<br><br>
+<a href="/events" class="btn-secondary">← Back to All Events</a>

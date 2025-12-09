@@ -5,7 +5,7 @@
     <a href="/events">Browse Events</a>
 <?php else: ?>
 
-    <table border="1" cellpadding="10">
+    <table class="cart-table">
         <tr>
             <th>Event</th>
             <th>Date</th>
@@ -35,5 +35,5 @@
 
 <?php endif; ?>
 
-<br>
-<a href="/events">← Back to Events</a>
+<br><br>
+<a href="/events" class="btn-secondary">← Back to Events</a>

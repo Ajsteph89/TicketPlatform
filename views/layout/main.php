@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?= $title ?? 'Ticket Market' ?></title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
 
@@ -11,32 +11,16 @@
     <?php require __DIR__ . '/../../partials/navbar.php'; ?>
 <?php endif; ?>
 
-<main>
-    <?php require __DIR__ . '/../' . $view . '.php'; ?>
-</main>
+<div class="container">
+    <main>
+        <?php require __DIR__ . '/../' . $view . '.php'; ?>
+    </main>
+</div>
 
 <!-- CART MODAL -->
-<div id="cart-modal" style="
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.6);
-    z-index:1000;
-">
+<div id="cart-modal" class="modal-overlay">
 
-    <div style="
-        background:#fff;
-        width:90%;
-        max-width:800px;
-        margin:40px auto;
-        padding:20px;
-        position:relative;
-        max-height:85vh;
-        overflow-y:auto;
-    ">
+    <div class="modal-box">
 
         <button id="close-cart-modal" style="
             position:absolute;
