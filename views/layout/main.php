@@ -31,9 +31,11 @@
         background:#fff;
         width:90%;
         max-width:800px;
-        margin:60px auto;
+        margin:40px auto;
         padding:20px;
         position:relative;
+        max-height:85vh;
+        overflow-y:auto;
     ">
 
         <button id="close-cart-modal" style="
@@ -41,8 +43,6 @@
             top:10px;
             right:10px;
         ">X</button>
-
-        <h2>Your Cart</h2>
 
         <!-- Dynamic cart content loads here -->
         <div id="cart-modal-content">

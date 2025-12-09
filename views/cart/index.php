@@ -61,11 +61,11 @@
     <form method="POST" action="/cart/clear" class="clear-cart-form">
         <button type="submit">Clear Cart</button>
     </form>
-    <br><br>
+    <br>
     <form method="GET" action="/checkout" class="proceed-to-review" style="display:inline;">
         <button type="submit">Proceed to Checkout</button>
     </form>
 <?php endif; ?>
 
-<br>
+<br><br>
 <a href="/events">← Back to Events</a>

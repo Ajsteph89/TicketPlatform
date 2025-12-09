@@ -10,7 +10,8 @@
     <?php foreach ($events as $event): ?>
         <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
             <h3><?= htmlspecialchars($event['name']) ?></h3>
-            <p><strong>Date:</strong> <?= $event['event_datetime'] ?></p>
+            <p><strong>Date:</strong> <?= date('F j, Y g:i A', strtotime($event['event_datetime']))?></p>
+
             <p><strong>Location:</strong> <?= htmlspecialchars($event['location']) ?></p>
 
             <a href="/organizer/events/tickets?event_id=<?= $event['id'] ?>">Manage Tickets</a> |

@@ -11,7 +11,10 @@
                 <p><?= nl2br(htmlspecialchars($event['description'])) ?></p>
             <?php endif; ?>
 
-            <p><strong>Date:</strong> <?= $event['event_datetime'] ?></p>
+            <p><strong>Date:</strong><?= date('F j, Y g:i A', strtotime($event['event_datetime'])) ?></p>
+
+            
+
             <p><strong>Location:</strong> <?= htmlspecialchars($event['location']) ?></p>
 
             <a href="/events/show?id=<?= $event['id'] ?>">View Tickets</a>

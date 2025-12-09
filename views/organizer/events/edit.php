@@ -29,8 +29,6 @@
     <button type="submit">Update Event</button>
 
     <br><br>
-
-    <a href="/organizer/events">
-        <button type="button">Back to Events</button>
-    </a>
 </form>
+
+<a href="/organizer/events">← Back to Events</a>

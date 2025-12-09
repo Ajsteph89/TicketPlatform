@@ -48,3 +48,8 @@
 
     <button type="submit">Update Ticket</button>
 </form>
+
+<br><br>
+<a href="/organizer/events/tickets?event_id=<?= $event_id ?>">
+    ← Back to Tickets
+</a>

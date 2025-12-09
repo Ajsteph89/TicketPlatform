@@ -4,7 +4,8 @@
     <p><?= nl2br(htmlspecialchars($event['description'])) ?></p>
 <?php endif; ?>
 
-<p><strong>Date:</strong> <?= $event['event_datetime'] ?></p>
+<p><strong>Date:</strong> <?= date('F j, Y g:i A', strtotime($event['event_datetime'])) ?></p>
+
 <p><strong>Location:</strong> <?= htmlspecialchars($event['location']) ?></p>
 
 <hr>
@@ -17,8 +18,8 @@
     <?php foreach ($tickets as $ticket): ?>
         <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
             <p><strong><?= $ticket['ticket_type'] ?></strong></p>
-            <p>Sales Begin: <?= $ticket['sale_start']?></p>
-            <p>Sales End: <?= $ticket['sale_end']?></p>
+            <p>Sales Begin: <?= date('F j, Y g:i A', strtotime($ticket['sale_start'])) ?></p>
+            <p>Sales End: <?= date('F j, Y g:i A', strtotime($ticket['sale_end'])) ?></p>
             <p>Price: $<?= number_format($ticket['price'], 2) ?></p>
 
             <?php if ($ticket['quantity'] > 0): ?>
