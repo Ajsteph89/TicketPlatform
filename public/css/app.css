@@ -205,17 +205,20 @@ label {
 /* ===== Cart Row Actions ===== */
 .cart-actions {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
+    white-space: nowrap;
 }
 
 .cart-actions input[type="number"] {
     width: 60px;
     text-align: center;
+    margin: 0;
 }
 
-.cart-actions label {
+.cart-actions button {
     margin: 0;
 }
 
@@ -284,6 +287,26 @@ label {
     margin: 18px 0;
 }
 
+/* ===== Admin / Organizer Forms ===== */
+.form-card {
+    background: #fff;
+    padding: 22px 26px;
+    border-radius: 10px;
+    max-width: 650px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.form-card h1,
+.form-card h2 {
+    margin-top: 0;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+
 
 /* =====  Action Buttons ===== */
 
@@ -313,4 +336,22 @@ label {
 
 .btn-secondary:hover {
     background: #d1d5db;
+}
+
+/* ===== Home Hero Title ===== */
+.hero-title {
+    font-size: 48px;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 6px;
+    color: #1f2933;
+    letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 32px;
 }

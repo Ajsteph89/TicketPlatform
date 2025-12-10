@@ -99,7 +99,7 @@
         </tr>
     </table>
 
-    <!-- <div class="ticket-actions"> -->
+    <div class="form-actions">
         <button type="submit">Place Order</button>
     </div>
 </form>

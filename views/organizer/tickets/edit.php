@@ -1,6 +1,6 @@
 <h1>Edit Tickets</h1>
 
-<div class="checkout-box">
+<div class="form-card">
     <form method="POST" action="/organizer/events/tickets/update">
         <input type="hidden" name="id" value="<?= $ticket['id'] ?>">
         <input type="hidden" name="event_id" value="<?= $event_id ?>">
@@ -45,7 +45,7 @@
             </select>
         </div>
 
-        <div class="ticket-actions">
+        <div class="form-actions">
             <button type="submit">Update Ticket</button>
         </div>
     </form>

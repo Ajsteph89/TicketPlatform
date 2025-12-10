@@ -10,11 +10,13 @@
     <?php foreach ($events as $event): ?>
         <div class="event-card">
             <h3><?= htmlspecialchars($event['name']) ?></h3>
+
+            <p><strong>Description:</strong> <?= htmlspecialchars($event['description']) ?></p>
             <p><strong>Date:</strong> <?= date('F j, Y g:i A', strtotime($event['event_datetime']))?></p>
 
             <p><strong>Location:</strong> <?= htmlspecialchars($event['location']) ?></p>
 
-            <div class="ticket-actions">
+            <div>
                 <a href="/organizer/events/tickets?event_id=<?= $event['id'] ?>" class="btn-secondary">Manage Tickets</a> |
 
                 <a href="/organizer/events/edit?id=<?= $event['id'] ?>" class="btn-secondary">Edit</a>

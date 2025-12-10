@@ -28,18 +28,18 @@
                 <td><?= $item['quantity'] ?></td>
                 <td>$<?= number_format($itemTotal, 2) ?></td>
                 <td>
-                <form method="POST" action="/cart/remove" class="remove-from-cart ticket-actions">
+                <form method="POST" action="/cart/remove" class="remove-from-cart cart-actions">
                     <input type="hidden" name="ticket_id" value="<?= $item['ticket_id'] ?>">
 
-                    <label>
-                        <input 
-                            type="number" 
-                            name="quantity" 
-                            min="1" 
-                            max="<?= $item['quantity'] ?>" 
-                            value="1"
-                        >
-                    </label>
+                    <span>Qty:</span>
+
+                    <input 
+                        type="number" 
+                        name="quantity" 
+                        min="1" 
+                        max="<?= $item['quantity'] ?>" 
+                        value="1"
+                    >
 
                     <button type="submit">Remove</button>
                 </form>

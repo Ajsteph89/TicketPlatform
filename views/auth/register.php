@@ -1,6 +1,6 @@
 <h1>Register</h1>
 
-<div class="checkout-box">
+<div class="form-card">
     <form method="POST" action="/register">
         <div class="form-group">
             <label>First Name</label><br>
@@ -35,7 +35,7 @@
             </select>
         </div>
 
-        <div class="ticket-actions">
+        <div class="form-actions">
             <button type="submit">Create Account</button>
         </div>
     </form>

@@ -1,6 +1,6 @@
 <h1>Create Tickets</h1>
 
-<div class="checkout-box">
+<div class="form-card">
     <form method="POST" action="/organizer/events/tickets/store">
         <input type="hidden" name="event_id" value="<?= $event_id ?>">
 
@@ -40,7 +40,7 @@
             </select>
         </div>
 
-        <div class="ticket-actions">
+        <div class="form-actions">
             <button type="submit">Create Ticket</button>
         </div>
     </form>

@@ -1,6 +1,6 @@
 <h1>Create Event</h1>
 
-<div class="checkout-box">
+<div class="form-card">
     <form method="POST" action="/organizer/events/store">
         <div class="form-group">
             <label>Event Name</label><br>
@@ -22,7 +22,7 @@
             <input type="text" name="location" required>
         </div>
 
-        <div class="ticket-actions">
+        <div class="form-actions">
             <button type="submit">Create Event</button>
         </div>
             

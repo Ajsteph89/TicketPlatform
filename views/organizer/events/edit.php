@@ -1,5 +1,5 @@
 <h1>Edit Event</h1>
-<div class="checkout-box">
+<div class="form-card">
     <form method="POST" action="/organizer/events/update">
         <input type="hidden" name="id" value="<?= $event['id'] ?>">
 
@@ -24,7 +24,7 @@
             <input type="text" name="location" value="<?= htmlspecialchars($event['location']) ?>" required>
         </div>
 
-        <div class="ticket-actions">
+        <div class="form-actions">
             <button type="submit">Update Event</button>
         </div>
         
