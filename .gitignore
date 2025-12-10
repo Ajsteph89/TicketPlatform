@@ -1,0 +1,26 @@
+# OS Files
+.DS_Store
+Thumbs.db
+
+
+# Logs
+*.log
+
+# Cache / temp files
+/tmp
+.cache/
+*.cache
+
+# Node modules (if you ever add JS tooling)
+node_modules/
+
+# PHPStorm / VSCode / Editor junk
+.idea/
+.vscode/
+
+# Vendor folder (if Composer is ever added)
+vendor/
+
+# System files
+.sass-cache
+.env

@@ -1,24 +1,22 @@
 <?php
 
-$host = '127.0.0.1';
-$db   = 'ticketing_app';
-$user = 'root';        // change if needed
-$pass = '';            // change if needed
-$charset = 'utf8mb4';
+$envPath = __DIR__ . '/../.env';
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+if (!file_exists($envPath)) {
+    die('.env file not found. Please create one from .env.example');
+}
 
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
+$env = parse_ini_file($envPath);
+
+$host = $env['DB_HOST'];
+$db   = $env['DB_NAME'];
+$user = $env['DB_USER'];
+$pass = $env['DB_PASS'];
 
 try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
-} catch (\PDOException $e) {
-    throw new \PDOException(
-        $e->getMessage(),
-        (int)$e->getCode()
-    );
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
 }
+
