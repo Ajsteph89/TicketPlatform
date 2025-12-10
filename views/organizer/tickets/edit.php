@@ -52,6 +52,7 @@
 </div>
 
 <br><br>
+
 <a href="/organizer/events/tickets?event_id=<?= $event_id ?>" class="btn-secondary">
     ← Back to Tickets
 </a>

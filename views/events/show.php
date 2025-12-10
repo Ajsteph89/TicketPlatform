@@ -53,4 +53,5 @@
 <?php endif; ?>
 
 <br><br>
+
 <a href="/events" class="btn-secondary">← Back to All Events</a>

@@ -130,5 +130,4 @@ class CheckoutController extends Controller
             'hideNavbar' => isset($_GET['modal'])
         ]);
     }
-
 }

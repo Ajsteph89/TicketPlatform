@@ -34,4 +34,5 @@
 <?php endif; ?>
 
 <br><br>
+
 <a href="/organizer/events" class="btn-secondary">← Back to Events</a>

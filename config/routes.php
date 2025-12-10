@@ -52,8 +52,5 @@ return [
         '/cart/remove' => 'Cart/CartController@remove',
         '/cart/clear'  => 'Cart/CartController@clear',
         '/checkout/process' => 'Cart/CheckoutController@process',
-
-
-
     ]
 ];

@@ -90,7 +90,6 @@ class CartController extends Controller
         exit;
     }
 
-
     // Clear entire cart
     public function clear()
     {
