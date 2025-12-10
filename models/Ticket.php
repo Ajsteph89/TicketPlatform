@@ -1,2 +1,2 @@
 <?php
-// Future model for encapsulating user queries and business logic
+// Future model for encapsulating ticket queries and business logic
