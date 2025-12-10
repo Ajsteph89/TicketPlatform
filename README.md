@@ -56,65 +56,65 @@ This project was built as part of a technical interview assignment and demonstra
 ## Project Structure
 ```
 /config
-    - db.php
-    - routes.php
+    db.php
+    routes.php
 /controllers
     /Cart
-        - CartController.php
-        - CheckoutController.php
+        CartController.php
+        CheckoutController.php
     /Goer
-        - EventController.php
-        - TicketController.php
+        EventController.php
+        TicketController.php
     /Organizer
-        - EventAdminController.php
-        - OrganizerController.php
-        - TicketAdminController.php
-    - AuthController.php
-    - HomeController.php
+        EventAdminController.php
+        OrganizerController.php
+        TicketAdminController.php
+    AuthController.php
+    HomeController.php
 /core
-    - Controller.php
-    - Router.php
+    Controller.php
+    Router.php
 /database
-    - schema.sql
+    schema.sql
 /models ← placeholders for potential future refactor
-    - Event.php
-    - Ticket.php
-    - User.php
+    Event.php
+    Ticket.php
+    User.php
 /partials
-    - navbar.php
+    navbar.php
 /public
     /css
-        - app.css
+        app.css
     /js
-        - cart-modal.js
-    - index.php
+        cart-modal.js
+    index.php
 /views
     /auth
-        - login.php
-        - register.php
+        login.php
+        register.php
     /cart
-        - index.php
+        index.php
     /checkout
-        - index.php
-        - success.php
+        index.php
+        success.php
     /events
-        - index.php
-        - show.php
+        index.php
+        show.php
     /goer
-        - mytickets.php
+        mytickets.php
     /home
-        - index.php
+        index.php
     /layout
-        - main.php
+        main.php
     /organizer
         /events
-            - create.php
-            - edit.php
-            - index.php
+            create.php
+            edit.php
+            index.php
         /tickets
-            - create.php
-            - edit.php
-            - index.php
+            create.php
+            edit.php
+            index.php
 ```
 ---
 
