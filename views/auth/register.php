@@ -19,12 +19,16 @@
 
         <div class="form-group">
             <label>Password</label><br>
-            <input type="password" name="password" required>
+            <input type="password" name="password" required id="password">
         </div>
 
         <div class="form-group">
             <label>Confirm Password</label><br>
-            <input type="password" name="confirm_password" required>
+            <input type="password" name="confirm_password" required id="confirm_password">
+        </div>
+
+        <div id="password_match_error" style="color: red; display: none;">
+            Passwords do not match.
         </div>
 
         <div class="form-group">

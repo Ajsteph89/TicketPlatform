@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .then(response => response.text())
                 .then(() => {
-                    // ✅ Load success page INTO the modal
+                    // Load success page INTO the modal
                     fetch('/checkout/success?modal=1')
                         .then(response => response.text())
                         .then(html => {
@@ -155,3 +155,4 @@ document.addEventListener('DOMContentLoaded', function () {
     //  Attach Add-To-Cart interception globally
     attachAddToCartHandlers();
 });
+

@@ -87,6 +87,7 @@ This project was built as part of a technical interview assignment and demonstra
         app.css
     /js
         cart-modal.js
+        password.js
     index.php
 /views
     /auth
