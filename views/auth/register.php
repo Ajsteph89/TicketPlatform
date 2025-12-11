@@ -35,7 +35,7 @@
             <label>Account Type</label><br>
             <select name="role" required>
                 <option value="organizer">Event Organizer</option>
-                <option value="goer">Event Goer</option>
+                <option value="goer">Attendee</option>
             </select>
         </div>
 
