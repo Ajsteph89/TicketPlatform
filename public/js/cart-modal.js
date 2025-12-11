@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // ===== DOM ELEMENT REFERENCES =====
     const openBtn = document.getElementById('open-cart-modal');
     const closeBtn = document.getElementById('close-cart-modal');
     const modal = document.getElementById('cart-modal');
     const content = document.getElementById('cart-modal-content');
 
+    // ===== MODAL OPEN/CLOSE HELPERS =====
     function openModal() {
         modal.style.display = 'block';
     }
@@ -12,13 +14,16 @@ document.addEventListener('DOMContentLoaded', function () {
         modal.style.display = 'none';
     }
 
+    // ===== LOAD CART CONTENT INTO MODAL (AJAX) =====
     function loadCart() {
         content.innerHTML = 'Loading cart...';
 
+        // Request the cart HTML fragment
         fetch('/cart?modal=1')
             .then(response => response.text())
             .then(html => {
                 content.innerHTML = html;
+                // Reattach internal modal event handlers
                 attachRemoveHandlers();
                 attachClearCartHandler(); 
                 attachReviewHandler();
@@ -28,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
+    // ===== REMOVE ITEM FROM CART (AJAX) =====
     function attachRemoveHandlers() {
         const removeForms = content.querySelectorAll('form.remove-from-cart');
 
@@ -36,16 +42,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 e.preventDefault();
                 const formData = new FormData(form);
 
+                // Submit removal request via AJAX
                 fetch(form.action, {
                     method: 'POST',
                     body: formData
                 }).then(() => {
-                    loadCart();
+                    loadCart(); // Reload updated cart UI
                 });
             });
         });
     }
 
+    // ===== SWITCH TO CHECKOUT REVIEW WITHIN MODAL =====
     function attachReviewHandler() {
         const reviewForm = content.querySelector('form.proceed-to-review');
 
@@ -53,10 +61,13 @@ document.addEventListener('DOMContentLoaded', function () {
             reviewForm.addEventListener('submit', function (e) {
                 e.preventDefault();
 
+                 // Load checkout page *inside modal*
                 fetch('/checkout?modal=1')
                     .then(response => response.text())
                     .then(html => {
                         content.innerHTML = html;
+
+                        // When reviewing, attach next-step handlers
                         attachBackToCartHandler();
                         attachCheckoutHandler();
                     });
@@ -64,38 +75,42 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // ===== "BACK TO CART" FROM CHECKOUT REVIEW =====
     function attachBackToCartHandler() {
         const backBtn = content.querySelector('.back-to-cart');
 
         if (backBtn) {
             backBtn.addEventListener('click', function (e) {
                 e.preventDefault();
-                loadCart();
+                loadCart(); // Return user back to cart UI
             });
         }
     }
 
     // INTERCEPT "ADD TO CART" AND OPEN MODAL
     function attachAddToCartHandlers() {
+        // Attach this globally because add-to-cart forms exist outside the modal
         const addForms = document.querySelectorAll('form.add-to-cart-form');
 
         addForms.forEach(form => {
             form.addEventListener('submit', function (e) {
-                e.preventDefault();
+                e.preventDefault(); // Stop full page reload
 
                 const formData = new FormData(form);
 
+                // Submit via AJAX
                 fetch(form.action, {
                     method: 'POST',
                     body: formData
                 }).then(() => {
+                    // Immediately show updated cart in modal
                     openModal();
                     loadCart();
                 });
             });
         });
     }
-
+    // ===== PROCESS FINAL CHECKOUT (AJAX) =====
     function attachCheckoutHandler() {
         const checkoutForm = content.querySelector('#modal-checkout-form');
     
@@ -104,14 +119,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 e.preventDefault();
     
                 const formData = new FormData(checkoutForm);
-    
+                
+                // Submit order request
                 fetch('/checkout/process', {
                     method: 'POST',
                     body: formData
                 })
                 .then(response => response.text())
                 .then(() => {
-                    // Load success page INTO the modal
+                    // Load success page inside the modal
                     fetch('/checkout/success?modal=1')
                         .then(response => response.text())
                         .then(html => {
@@ -122,13 +138,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // ===== CLEAR CART (AJAX) =====
     function attachClearCartHandler() {
         const clearForm = content.querySelector('form.clear-cart-form');
     
         if (clearForm) {
             clearForm.addEventListener('submit', function (e) {
                 e.preventDefault();
-    
+                
+                 // Submit request to clear cart
                 fetch(clearForm.action, {
                     method: 'POST'
                 }).then(() => {
@@ -138,6 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }    
     
+     // ===== NAVBAR CART BUTTON =====
     if (openBtn) {
         openBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -153,6 +172,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     //  Attach Add-To-Cart interception globally
+    // This must run after DOM loads, so buttons intercept AJAX instead of reloading the page.
+
     attachAddToCartHandlers();
 });
 
