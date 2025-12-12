@@ -86,7 +86,7 @@ class CheckoutController extends Controller
                 $qty      = $item['quantity'];
                 $price    = $item['price'];
 
-                // ✅ Lock ticket row
+                // Lock ticket row
                 $lockTicket->execute([$ticketId]);
                 $currentQty = $lockTicket->fetchColumn();
 
@@ -94,7 +94,7 @@ class CheckoutController extends Controller
                     throw new Exception("Not enough inventory for ticket ID {$ticketId}");
                 }
 
-                // ✅ Insert order item
+                // Insert order item
                 $insertItem->execute([
                     $orderId,
                     $ticketId,
@@ -102,14 +102,14 @@ class CheckoutController extends Controller
                     $price
                 ]);
 
-                // ✅ Decrement inventory
+                // Decrement inventory
                 $updateTicket->execute([
                     $qty,
                     $ticketId
                 ]);
             }
 
-            // ✅ Clear cart
+            // Clear cart
             unset($_SESSION['cart']);
 
             $pdo->commit();
